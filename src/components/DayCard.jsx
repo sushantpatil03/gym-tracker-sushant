@@ -137,7 +137,7 @@ export default function DayCard({ dayType, isCompleted, onSwitchPress }) {
             <button
               className="btn btn-primary btn-lg"
               onClick={() => navigate(config.route)}
-              style={{ flex: 1, minWidth: 140 }}
+              style={{ flex: 1, minWidth: 120 }}
             >
               Start Workout
               <ArrowRight size={18} />
