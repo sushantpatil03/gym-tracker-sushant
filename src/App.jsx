@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import WorkoutDay from './pages/WorkoutDay';
 import ExerciseDetail from './pages/ExerciseDetail';
 import History from './pages/History';
+import Admin from './pages/Admin';
 import { useWorkoutStore } from './store/workoutStore';
 
 function WorkoutRedirect() {
@@ -30,6 +31,7 @@ export default function App() {
           <Route path="/workout/:dayType" element={<WorkoutDay />} />
           <Route path="/exercise/:id" element={<ExerciseDetail />} />
           <Route path="/history" element={<History />} />
+          <Route path="/admin" element={<Admin />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
         <BottomNav />
