@@ -92,7 +92,7 @@ export default function Home() {
                   zIndex: 50,
                 }}
               >
-                {['sush', 'vishwajeet'].map((user) => (
+                {['sush', 'user2'].map((user) => (
                   <button
                     key={user}
                     onClick={() => { setActiveUser(user); setUserMenuOpen(false); }}
