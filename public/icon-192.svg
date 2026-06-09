@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#1E1E1E"/>
+      <stop offset="100%" stop-color="#0F0F0F"/>
+    </radialGradient>
+  </defs>
+  <rect width="192" height="192" rx="42" fill="url(#bg)"/>
+  <!-- Dumbbell bar -->
+  <rect x="58" y="88" width="76" height="16" rx="4" fill="#F97316"/>
+  <!-- Left outer plate -->
+  <rect x="34" y="69" width="24" height="54" rx="6" fill="#F97316"/>
+  <!-- Left inner grip -->
+  <rect x="22" y="77" width="14" height="38" rx="4" fill="#F97316"/>
+  <!-- Right outer plate -->
+  <rect x="134" y="69" width="24" height="54" rx="6" fill="#F97316"/>
+  <!-- Right inner grip -->
+  <rect x="156" y="77" width="14" height="38" rx="4" fill="#F97316"/>
+</svg>
