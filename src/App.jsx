@@ -25,7 +25,7 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <div style={{ width: '100%', maxWidth: 480, margin: '0 auto', position: 'relative', minHeight: '100dvh', overflowX: 'hidden' }}>
+      <div style={{ maxWidth: 480, margin: '0 auto', position: 'relative', minHeight: '100dvh' }}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/workout" element={<WorkoutRedirect />} />

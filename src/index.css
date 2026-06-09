@@ -32,19 +32,15 @@ html {
   background-color: var(--bg);
   color: var(--text-primary);
   overscroll-behavior: none;
-  width: 100%;
-  overflow-x: hidden;
 }
 
 body {
   margin: 0;
-  width: 100%;
   min-height: 100dvh;
   background-color: var(--bg);
   color: var(--text-primary);
   -webkit-font-smoothing: antialiased;
   overscroll-behavior: none;
-  overflow-x: hidden;
 }
 
 #root {
