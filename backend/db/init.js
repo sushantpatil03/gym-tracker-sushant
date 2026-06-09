@@ -3,12 +3,18 @@ const { createClient } = require('@libsql/client');
 const path = require('path');
 const fs = require('fs');
 
-const DB_DIR = process.env.DB_DIR || path.join(__dirname, '../data');
-fs.mkdirSync(DB_DIR, { recursive: true });
+// Local dev: file:./data/gymtracker.db
+// Production (Turso): libsql://gymtracker-xxx.turso.io + TURSO_AUTH_TOKEN
+const DB_URL = process.env.DATABASE_URL || (() => {
+  const dir = path.join(__dirname, '../data');
+  fs.mkdirSync(dir, { recursive: true });
+  return `file:${path.join(dir, 'gymtracker.db')}`;
+})();
 
-const DB_URL = process.env.DATABASE_URL || `file:${path.join(DB_DIR, 'gymtracker.db')}`;
-
-const client = createClient({ url: DB_URL });
+const client = createClient({
+  url: DB_URL,
+  authToken: process.env.TURSO_AUTH_TOKEN, // undefined for local file = ignored
+});
 
 const SCHEMA = `
   CREATE TABLE IF NOT EXISTS exercises (
