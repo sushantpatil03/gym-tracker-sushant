@@ -236,10 +236,16 @@ export default function ExerciseDetail() {
       {/* Single scroll content */}
       <div style={{ padding: '16px 20px', display: 'flex', flexDirection: 'column', gap: 20 }}>
 
-        {/* Video */}
-        {exercise.youtube_video_id && (
+        {/* Videos */}
+        {exercise.videos && exercise.videos.length > 0 ? (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+            {exercise.videos.map((v, i) => (
+              <VideoEmbed key={v.id || i} videoId={v.youtube_video_id} title={v.title || `${exercise.name} — demonstration`} />
+            ))}
+          </div>
+        ) : exercise.youtube_video_id ? (
           <VideoEmbed videoId={exercise.youtube_video_id} title={`${exercise.name} — demonstration`} />
-        )}
+        ) : null}
 
         {/* Prescription */}
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 10, padding: '12px 16px' }}>
