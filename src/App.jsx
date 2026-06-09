@@ -4,6 +4,7 @@ import BottomNav from './components/BottomNav';
 import Home from './pages/Home';
 import WorkoutDay from './pages/WorkoutDay';
 import ExerciseDetail from './pages/ExerciseDetail';
+import Library from './pages/Library';
 import History from './pages/History';
 import Admin from './pages/Admin';
 import { useWorkoutStore } from './store/workoutStore';
@@ -30,6 +31,7 @@ export default function App() {
           <Route path="/workout" element={<WorkoutRedirect />} />
           <Route path="/workout/:dayType" element={<WorkoutDay />} />
           <Route path="/exercise/:id" element={<ExerciseDetail />} />
+          <Route path="/library" element={<Library />} />
           <Route path="/history" element={<History />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="*" element={<Navigate to="/" replace />} />

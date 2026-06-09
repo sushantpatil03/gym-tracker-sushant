@@ -1,9 +1,10 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Home, Dumbbell, BarChart2 } from 'lucide-react';
+import { Home, Dumbbell, BarChart2, Search } from 'lucide-react';
 
 const tabs = [
   { to: '/', icon: Home, label: 'Home' },
   { to: '/workout', icon: Dumbbell, label: 'Workout' },
+  { to: '/library', icon: Search, label: 'Library' },
   { to: '/history', icon: BarChart2, label: 'History' },
 ];
 
