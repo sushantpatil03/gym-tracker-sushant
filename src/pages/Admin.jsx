@@ -20,13 +20,18 @@ function LoginScreen({ onLogin }) {
     e.preventDefault();
     setLoading(true);
     setError('');
-    const res = await login(password);
-    setLoading(false);
-    if (res.token) {
-      localStorage.setItem('admin_token', res.token);
-      onLogin(res.token);
-    } else {
-      setError(res.error || 'Invalid password');
+    try {
+      const res = await login(password);
+      setLoading(false);
+      if (res && res.token) {
+        localStorage.setItem('admin_token', res.token);
+        onLogin(res.token);
+      } else {
+        setError(res?.error || 'Invalid password');
+      }
+    } catch (err) {
+      setLoading(false);
+      setError(err.message === 'Failed to fetch' ? 'Cannot connect to backend. Is it sleeping?' : err.message || 'Login failed');
     }
   };
 

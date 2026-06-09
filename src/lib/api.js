@@ -95,12 +95,24 @@ export const setPrimaryVideo = (id, token) =>
   }).then((r) => r.json());
 
 // Auth
-export const login = (password) =>
-  fetch(`${API_BASE}/api/auth/login`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ password }),
-  }).then((r) => r.json());
+export const login = async (password) => {
+  try {
+    const res = await fetch(`${API_BASE}/api/auth/login`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password }),
+    });
+    
+    const contentType = res.headers.get("content-type");
+    if (contentType && contentType.includes("application/json")) {
+      return await res.json();
+    } else {
+      throw new Error('API not reachable (Check VITE_API_URL and Redeploy Vercel)');
+    }
+  } catch (err) {
+    throw err;
+  }
+};
 
 export const verifyToken = (token) =>
   fetch(`${API_BASE}/api/auth/verify`, {
